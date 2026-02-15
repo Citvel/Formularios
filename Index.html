@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RFC</title>
+</head>
+<body>
+    <!--Barra de navegacion-->    
+    <nav class="navbar"> 
+        <ul>
+            <li><a href="Curp.html">CURP</a></li>
+            <li><a href="Direccion.html">Direccion</a></li>
+            <li><a href="Entrevista.html">Entrevista</a></li>
+            <li><a href="Suma.html">Suma</a></li>
+        </ul>
+    </nav>
+
+<!--Captutra de datos-->
+    <h2>Generar RFC (Sin Homoclave)</h2>
+
+    <label>Nombre:</label>
+    <input type="text" id="nombre"><br><br>
+
+    <label>Apellido Paterno:</label>
+    <input type="text" id="apellidoPaterno"><br><br>
+
+    <label>Apellido Materno:</label>
+    <input type="text" id="apellidoMaterno"><br><br>
+
+    <label>Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimiento"><br><br>
+
+    <button onclick="crearJSON()">Objeto JSON</button>
+    <button onclick="generarRFC()">Generar RFC</button>
+
+    <h3>Objeto JSON:</h3>
+        <pre id="resultadoJSON"></pre>
+
+    <h3>RFC Generado:</h3>
+        <label id="resultadoRFC"></label>
+
+<!--JavaScript-->
+    <script>
+        function crearJSON(){
+
+            var objetoRFC = {
+                nombre: document.getElementById("nombre").value,
+                apellidoPaterno: document.getElementById("apellidoPaterno").value,
+                apellidoMaterno: document.getElementById("apellidoMaterno").value,
+                fechaNacimiento: document.getElementById("fechaNacimiento").value
+            };
+
+            document.getElementById("resultadoJSON").textContent =
+                JSON.stringify(objetoRFC, null, 2);
+        }
+
+        function generarRFC(){
+
+            var nombre = document.getElementById("nombre").value.toUpperCase();
+            var apPat = document.getElementById("apellidoPaterno").value.toUpperCase();
+            var apMat = document.getElementById("apellidoMaterno").value.toUpperCase();
+            var fecha = document.getElementById("fechaNacimiento").value;
+
+            var anio = fecha.substring(2,4);
+            var mes = fecha.substring(5,7);
+            var dia = fecha.substring(8,10);
+
+            var rfc = apPat.substring(0,2) +
+                    apMat.substring(0,1) +
+                    nombre.substring(0,1) +
+                    anio + mes + dia;
+
+            document.getElementById("resultadoRFC").innerText = rfc;
+        }
+    </script>    
+</body>
+</html>
+
+
+

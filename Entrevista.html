@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<!--Barra de navegacion-->
+    <nav class="navbar">
+        <ul>
+            <li><a href="Index.html">RFC</a></li>
+            <li><a href="Curp.html">CURP</a></li>
+            <li><a href="Direccion.html">Direccion</a></li>
+            <li><a href="Suma.html">Suma</a></li>
+        </ul>
+    </nav>
+
+<!--Captura de datos-->
+    <h1>Formulario de Experiencia</h1>
+        <div>
+            <p>1. ¿Qué lenguajes de programación conoces?</p>
+            <input type="text" id="p1"><br><br>
+
+            <p>2. ¿Has trabajado en equipo en algún proyecto de programación?</p>
+            <input type="text" id="p2"><br><br>
+
+            <p>3. ¿Cómo te mantienes al día con las nuevas tendencias y tecnologías?</p>
+            <input type="text" id="p3"><br><br>
+
+            <p>4. ¿Tienes experiencia con pruebas unitarias?</p>
+            <input type="text" id="p4"><br><br>
+
+            <p>5. ¿Cómo controlas las versiones de tu código?</p>
+            <input type="text" id="p5"><br><br>
+
+            <p>6. ¿Cómo manejas los errores en tu código?</p>
+            <input type="text" id="p6"><br><br>
+
+            <p>7. ¿Puedes hablar sobre un proyecto del que te sientas orgulloso?</p>
+            <input type="text" id="p7"><br><br>
+
+            <p>8. ¿Cuál es la característica que más valoras en un equipo de trabajo?</p>
+            <input type="text" id="p8"><br><br>
+
+            <p>9. ¿Cómo manejas la presión o el estrés en el trabajo?</p>
+            <input type="text" id="p9"><br><br>
+
+            <p>10. ¿Cuál es tu entorno de desarrollo preferido?</p>
+            <input type="text" id="p10"><br><br>
+
+            <p>11. ¿Has usado alguna vez un sistema de seguimiento de errores?</p>
+            <input type="text" id="p11"><br><br>
+
+            <p>12. ¿Qué tipo de problemas te gusta resolver como programador?</p>
+            <input type="text" id="p12"><br><br>
+
+            <p>13. Si tienes un plazo ajustado y no estás seguro de poder cumplirlo, ¿qué haces?</p>
+            <input type="text" id="p13"><br><br>
+
+            <p>14. ¿Cómo te aseguras de que tu código es seguro?</p>
+            <input type="text" id="p14"><br><br>
+
+            <p>15. Describe un proyecto en el que hayas trabajado que haya fallado. ¿Qué aprendiste?</p>
+            <input type="text" id="p15"><br><br>
+
+            <p>16. ¿Cómo decides cuándo utilizar una estructura de datos o algoritmo específico?</p>
+            <input type="text" id="p16"><br><br>
+
+            <p>17. ¿Cómo pruebas tu código antes de un despliegue?</p>
+            <input type="text" id="p17"><br><br>
+
+            <p>18. ¿Qué patrones de diseño conoces y cuál es tu preferido?</p>
+            <input type="text" id="p18"><br><br>
+
+            <p>19. ¿Tienes experiencia trabajando con alguna metodología ágil como Scrum o Kanban?</p>
+            <input type="text" id="p19"><br><br>
+
+            <p>20. ¿Qué habilidades debe tener un programador junior?</p>
+            <input type="text" id="p20"><br><br>
+
+            <p>21. ¿Qué se espera de un programador junior?</p>
+            <input type="text" id="p21"><br><br>
+
+            <p>22. ¿Cuál es el camino de carrera para un programador junior?</p>
+            <input type="text" id="p22"><br><br>
+
+            <input type="button" value="Generar JSON" onclick="generarJSON()">
+        </div>
+
+    <h3>Objeto JSON generado:</h3>
+    <pre id="resultadoJSON"></pre>
+
+<!--JavaScript-->
+    <script>
+        function generarJSON(){
+
+            var objetoEntrevista = {
+                pregunta1: document.getElementById("p1").value,
+                pregunta2: document.getElementById("p2").value,
+                pregunta3: document.getElementById("p3").value,
+                pregunta4: document.getElementById("p4").value,
+                pregunta5: document.getElementById("p5").value,
+                pregunta6: document.getElementById("p6").value,
+                pregunta7: document.getElementById("p7").value,
+                pregunta8: document.getElementById("p8").value,
+                pregunta9: document.getElementById("p9").value,
+                pregunta10: document.getElementById("p10").value,
+                pregunta11: document.getElementById("p11").value,
+                pregunta12: document.getElementById("p12").value,
+                pregunta13: document.getElementById("p13").value,
+                pregunta14: document.getElementById("p14").value,
+                pregunta15: document.getElementById("p15").value,
+                pregunta16: document.getElementById("p16").value,
+                pregunta17: document.getElementById("p17").value,
+                pregunta18: document.getElementById("p18").value,
+                pregunta19: document.getElementById("p19").value,
+                pregunta20: document.getElementById("p20").value,
+                pregunta21: document.getElementById("p21").value,
+                pregunta22: document.getElementById("p22").value
+            };
+
+            document.getElementById("resultadoJSON").textContent =
+                JSON.stringify(objetoEntrevista, null, 2);
+        }
+    </script>   
+</body>
+</html>
+
+
+

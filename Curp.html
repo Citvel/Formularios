@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CURP</title>
+</head>
+<body>
+    <!--Barra de navegacion-->    
+    <nav class="navbar"> 
+        <ul>
+            <li><a href="Index.html">RFC</a></li>
+            <li><a href="Direccion.html">Direccion</a></li>
+            <li><a href="Entrevista.html">Entrevista</a></li>
+            <li><a href="Suma.html">Suma</a></li>
+        </ul>
+    </nav>
+    
+<!--Captura de datos-->    
+    <h2>Generar CURP</h2>
+
+    <label>Nombre:</label>
+    <input type="text" id="nombre"><br><br>
+
+    <label>Apellido Paterno:</label>
+    <input type="text" id="apellidoPaterno"><br><br>
+
+    <label>Apellido Materno:</label>
+    <input type="text" id="apellidoMaterno"><br><br>
+
+    <label>Fecha de Nacimiento:</label>
+    <input type="date" id="fechaNacimiento"><br><br>
+
+    <label>Sexo:</label>
+    <select id="sexo">
+        <option value="H">Hombre</option>
+        <option value="M">Mujer</option>
+    </select><br><br>
+
+    <label>Estado de Nacimiento:</label>
+    <input type="text" id="estado"><br><br>
+
+    <button onclick="crearJSON()">Objeto JSON</button>
+    <button onclick="generarCURP()">Generar CURP</button>
+
+    <h3>Objeto JSON:</h3>
+    <pre id="resultadoJSON"></pre>
+
+    <h3>CURP Generada:</h3>
+    <label id="resultadoCURP"></label>
+
+<!--JavaScript-->
+    <script>
+        function crearJSON(){ //Generacion del JSON
+
+            var objetoCURP = {
+                nombre: document.getElementById("nombre").value,
+                apellidoPaterno: document.getElementById("apellidoPaterno").value,
+                apellidoMaterno: document.getElementById("apellidoMaterno").value,
+                fechaNacimiento: document.getElementById("fechaNacimiento").value,
+                sexo: document.getElementById("sexo").value,
+                estado: document.getElementById("estado").value
+            };
+
+            document.getElementById("resultadoJSON").textContent =
+                JSON.stringify(objetoCURP, null, 2);
+        }
+
+        function generarCURP(){ //Generacion de CURP
+
+            var nombre = document.getElementById("nombre").value.toUpperCase();
+            var apPat = document.getElementById("apellidoPaterno").value.toUpperCase();
+            var apMat = document.getElementById("apellidoMaterno").value.toUpperCase();
+            var fecha = document.getElementById("fechaNacimiento").value;
+            var sexo = document.getElementById("sexo").value;
+            var estado = document.getElementById("estado").value.toUpperCase();
+
+            var anio = fecha.substring(2,4);
+            var mes = fecha.substring(5,7);
+            var dia = fecha.substring(8,10);
+
+            var curp = apPat.substring(0,1) +
+                    apPat.substring(1,2) +
+                    apMat.substring(0,1) +
+                    nombre.substring(0,1) +
+                    anio + mes + dia +
+                    sexo +
+                    estado.substring(0,1);
+
+            document.getElementById("resultadoCURP").innerText = curp;
+        }
+    </script>    
+</body>
+</html>
+
+
+
+
+

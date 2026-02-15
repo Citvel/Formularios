@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Direccion</title>
+</head>
+<body>
+<!--Barra de Navegacion-->  
+    <nav class="navbar"> 
+        <ul>
+            <li><a href="Index.html">RFC</a></li>
+            <li><a href="Curp.html">CURP</a></li>
+            <li><a href="Entrevista.html">Entrevista</a></li>
+            <li><a href="Suma.html">Suma</a></li>
+        </ul>
+    </nav>
+
+<!--Captura de datos-->
+    <h2>Dirección</h2>
+
+    <label>Calle:</label>
+    <input type="text" id="calle"><br><br>
+
+    <label>Numero:</label>
+    <input type="text" id="numero" ><br><br>
+
+    <label>Colonia:</label>
+    <input type="text" id="colonia"><br><br>
+
+    <label>Código Postal:</label>
+    <input type="text" id="codigoPostal"><br><br>
+
+    <label>Estado:</label>
+    <input type="text" id="estado"><br><br>
+
+    <button onclick="guardarDireccion()">Guardar</button>
+
+    <h3>Datos Capturados:</h3>
+    <pre id="resultadoDireccion"></pre>
+
+<!--JavaScript-->
+    <script>
+        function guardarDireccion(){
+
+            var direccion = {
+                calle: document.getElementById("calle").value,
+                numero: document.getElementById("numero").value,
+                colonia: document.getElementById("colonia").value,
+                codigoPostal: document.getElementById("codigoPostal").value,
+                estado: document.getElementById("estado").value
+            };
+
+            document.getElementById("resultadoDireccion").textContent =
+                JSON.stringify(direccion, null, 2);
+        }
+    </script>
+</body>
+</html>
+
+
+
